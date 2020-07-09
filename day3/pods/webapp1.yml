@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:   #  this is giving  labels  to POD 
+    x: ciscowebapp  #  this is the label:   run is the key nd  podxashu1  is the Value  ---   x: value 
+  name: podxashu1  #  Name of POd 
+spec:
+  containers:
+  - image: dockerashu/ciscoweb:july72020 # docker  image
+    name: podxashu1  # name of container
+    ports:  #  port info about APP  
+    - containerPort: 80 #  container Port  same as Expose keyword in Dockerfile 
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

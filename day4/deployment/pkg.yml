@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: ashudev   #  creating  namespace 
+spec: {}
+status: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashudep1
+  name: ashudep1
+  namespace: ashudev  # using  namespace  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ashudep1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ashudep1  # label of POD 
+    spec:
+      containers:
+      - image: dockerashu/ciscoweb:july72020
+        name: ciscoweb
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashus2
+  name: ashus2
+  namespace: ashudev  # using  namespace  
+spec:
+  ports:
+  - name: 1234-80
+    port: 1234
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: ashudep1   # label of POD 
+  type: LoadBalancer
+status:
+  loadBalancer: {}

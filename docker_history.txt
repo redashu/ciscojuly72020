@@ -1,0 +1,296 @@
+   79  docker run -it  java    ping fb.com 
+   81  docker  run  -it  alpine  
+   82  docker  run  -it  python  
+   84  docker  images
+   85  docker  inspect  alpine 
+   86  docker  inspect  python 
+   87  docker  inspect  java
+  104  vim  Dockerfile
+  106  cat Dockerfile 
+  108  vim  Dockerfile
+  109  cat  Dockerfile 
+  110  cp  Dockerfile   /tmp/
+  113  cat  Dockerfile 
+  114  docker  images
+  115  docker  ps  -a
+  116  docker  rm  $(docker ps -aq) --force
+  117  docker  rmi  $(docker images -q) --force
+  118  docker  images
+  119  docker  ps  -a
+  121  cat  Dockerfile 
+  127  docker  images
+  129  docker  build  -t   python:ashuv1   . 
+  130  docker  images
+  131  cat  Dockerfile 
+  132  docker  images
+  133  docker  ps
+  134  docker  images
+  136  docker  images
+  137  docker  ps 
+  138  docker  kill  8eee6d6a0665
+  139  docker  images
+  140  docker  run  -it  python:ashuv1  
+  141  docker  run  -itd --name pyashuc1   python:ashuv1  
+  142  docker  ps
+  144  docker  logs  pyashuc1
+  146  cat Dockerfile 
+  148  cat  Dockerfile 
+  149  vim Dockerfile 
+  150  docker  run  -itd --name pyashuc2   python:ashuv1    python  /code/cisco.py
+  151  docker  ps
+  152  docker  logs  pyashuc2
+  154  vim Dockerfile 
+  155  docker  run  -it   python:ashuv1  bash 
+  157  docker  ps
+  158  cat  Dockerfile 
+  160  docker  inspect   python:ashuv1
+  162  cat  Dockerfile 
+  164  docker  inspect   python:ashuv1
+  165  docker images
+  166  docker  history python:ashuv1
+  167  docker  images
+  177  vim    ashu.dockerfile 
+  178  cat  ashu.dockerfile 
+  180  docker  build  -t ashu:alpine  . 
+  182  docker  build  -t ashu:alpine -f  ashu.dockerfile   . 
+  184  docker  images
+  186  docker  images
+  187  cat  ashu.dockerfile 
+  190  docker  run  -it ashu:alpine  
+  191  docker  run  -it ashu:alpine   cal 
+  192  docker  run  -it ashu:alpine   date
+  194  vim ashu.dockerfile 
+  196  vim ashu.dockerfile 
+  198  cat ashu.dockerfile 
+  199  docker build  -t  ashu:alv1  -f ashu.dockerfile  .
+  200  docker run -it   ashu:alv1  
+  201  docker run -it   ashu:alv1  google.com 
+  202  cat  ashu.dockerfile 
+  204  vim ashu.dockerfile 
+  205  docker  build  -t  ashu:v2 -f ashu.dockerfile  .
+  206  docker  run -it   ashu:v2  
+  207  docker  run -it   ashu:v2  google.com
+  208  cat  ashu.dockerfile 
+  226  vim  Dockerfile
+  229  cat  Dockerfile 
+  230  vim Dockerfile 
+  231  cat  Dockerfile 
+  233  cat  Dockerfile 
+  237  vim  .dockerignore 
+  238  cat  .dockerignore 
+  240  docker  build  -t  nginx:ashuv1  . 
+  242  cat  .dockerignore 
+  246  docker  images 
+  251  docker  images
+  253  docker  run  -d  --name  ashuwebc1  -p  1234:80    nginx:ashuv1  
+  254  docker  ps
+  256  docker  ps
+  261  cat  Dockerfile 
+  265  docker  images
+  266  cd /var/lib/docker/
+  270  docker  images
+  271  docker  save  -o  ashunginx.tar  922048fe83cf
+  274  docker  ps
+  275  docker  cp  ashunginx.tar  ashuwebc1:/usr/share/nginx/html/
+  276  docker  exec -it  ashuwebc1 sh 
+  277  docker  exec -it  ashuwebc1 bash
+  280  docker  ps
+  282  docker cp  ashunginx.tar  ashuwebc1:/usr/share/nginx/html/
+  283  docker  exec  -it  ashuwebc1  bash 
+  285  docker  iages
+  286  docker  images
+  287  docker  save -o a.tar  nginx:ashuv1 
+  290  docker  image
+  291  docker  images
+  292  docker  tag   nginx:ashuv1     dockerashu/nginx:ashuv1 
+  293  docker  login 
+  294  docker  push   dockerashu/nginx:ashuv1 
+  295  docker  logout 
+  297  docker  images  |   grep -i webser
+  298  docker  images
+  299  docker  images   |   grep -i nginx
+  301  docker  images   |   grep -i nginx
+  302  docker  images   
+  303  docker  images
+  304  docker  exec  -it  ashuc1  sh 
+  305  docker  ps
+  306  docker  run -d  --name  c2  alpine  ping  fb.com 
+  307  docker  run -d  --name  c3  --memory 200m   alpine  ping  fb.com 
+  308  docker  run -d  --name  c4  --memory 200m --cpus 1   alpine  ping  fb.com 
+  309  docker  update  ashuc1  --memory  50m 
+  310  docker  update  ashuc1  --memory  100m 
+  312  docker  update  ashuc1  --memory  200m 
+  313  docker  update  ashuc1  --memory  200m  --force
+  314  docker  update  ashuc1  --memory  200M
+  315  docker  ps
+  316  sudo curl https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker -o /etc/bash_completion.d/docker.sh
+  317  docker  update  ashuc2  --memory  300m
+  318  docker  update  ashuc2  --memory  300M
+  320  docker  ps
+  324  docker  version 
+  326  docker  search  mongodb 
+  327  docker pull quay.io/eclipse/che-sidecar-java
+  328  docker  images
+  333  docker  run  -it  alpine  
+  334  docker  ps -a
+  335  docker  start  gracious_easley
+  336  docker  ps
+  337  docker  logs  gracious_easley
+  338  docker kill gracious_easley
+  339  docker  start gracious_easley
+  340  docker  exec  gracious_easley  date
+  341  docker  kill gracious_easley
+  342  docker  rm  $(docker  ps  -aq)
+  343  docker  ps  -a
+  344  docker  images
+  345  docker  ps  -a
+  346  docker  run   --name ashuc1  -d  alpine  ping  fb.com  
+  347  docker   ps
+  348  docker  ps
+  349  docker  stats   ashuc1 
+  350  docker  stats   
+  351  docker  run  -d  --name ashuc2  --memory  100m  alpine  ping 8.8.8.8
+  352  docker  stats
+  354  docker  stats
+  363  vim Dockerfile
+  364  docker build -t  a:v1 .
+  365  docker run --rm  a:v1 
+  366  docker run --rm  a:v1  date
+  367  docker run --rm --entrypoint  cal  a:v1  
+  376  vim  Dockerfile
+  377  cat  Dockerfile 
+  378  vim Dockerfile 
+  379  cat  Dockerfile 
+  380  cp   Dockerfile  /tmp/
+  381  docker  ps
+  382  docker  rm   $(docker  ps  -aq) --force 
+  383  docker  images
+  384  docker  images  -q
+  385  docker  rmi  $(docker  images  -q)
+  386  docker  images
+  387  docker  rmi  $(docker  images  -q)  --force
+  388  docker  images
+  389  docker  ps
+  392  cat  Dockerfile 
+  393  docker  build  -t  ashu:testv1  .
+  395  cat  Dockerfile 
+  398  cat  Dockerfile 
+  399  docker  build  --build-arg x=telnet -t  ashu:testv2 . 
+  401  cat  Dockerfile 
+  402  vim Dockerfile 
+  403  cat  Dockerfile 
+  404  docker  build  --build-arg x=telnet  --build-arg z=ftp   -t  ashu:testv2 . 
+  405  vim Dockerfile 
+  406  docker  build  --build-arg x=telnet  --build-arg z=ftp   -t  ashu:testv2 . 
+  408  vim Dockerfile 
+  410  docker  run --rm  ashu:testv1  env 
+  412  vim  Dockerfile 
+  413  cat  Dockerfile 
+  414  docker build  -t  ashu:testv4  . 
+  415  docker  run --rm  ashu:testv4  env 
+  416  cat  Dockerfile 
+  418  cat  Dockerfile 
+  419  docker build  --build-arg x=telnet   -t  ashu:testv4  . 
+  420  vim  Dockerfile 
+  421  cat  Dockerfile 
+  422  docker build  --build-arg x=telnet   -t  ashu:testv4  . 
+  424  docker  run --rm  ashu:testv4  env
+  445  vim  Dockerfile 
+  447  vim  Dockerfile 
+  448  vim Dockerfile 
+  449  systemctl  status  docker
+  450  vim  /usr/lib/systemd/system/docker.service
+  452  vim Dockerfile 
+  453  cat  Dockerfile 
+  457  vim Dockerfile 
+  458  cat  Dockerfile 
+  459  vim Dockerfile 
+  460  cat  Dockerfile 
+  468  vim Dockerfile 
+  469  cat  Dockerfile 
+  474  vim  .dockerignore
+  475  cat  .dockerignore 
+  477  vim  Dockerfile 
+  479  cat  Dockerfile 
+  480  cp  Dockerfile  /tmp/
+  483  cat  .dockerignore 
+  484  cat  Dockerfile 
+  487  ls  Dockerfile 
+  489  cat  .dockerignore 
+  490  docker  images
+  492  docker  build  -t  ciscoweb:july72020  .
+  494  docker  images
+  496  docker  images
+  498  docker  images
+  502  docker  run -d  --name  ashuwebc1  -p 2244:80  ciscoweb:july72020 
+  503  cat  Dockerfile 
+  504  docker  ps
+  506  docker  ps
+  509  docker  ps
+  510  docker  run -d  --name  ashuwebc2  -p 2299:80 -e app=website2    ciscoweb:july72020 
+  511  docker  ps
+  513  docker  ps
+  514  cat  Dockerfile 
+  516  docker  ps
+  517  docker  run -d  --name  ashuwebc2  -p 2200:80 -e app=website3    ciscoweb:july72020 
+  518  docker  run -d  --name  ashuwebc3  -p 2200:80 -e app=website3    ciscoweb:july72020 
+  519  docker  ps
+  521  docker  ps
+  523  docker  ps
+  524  cat  Dockerfile 
+  528  docker ps
+  530  docker  ps
+  531  docker  ps   |   grep -i nv
+  532  docker  ps   |   grep -i dt
+  544  docker  tag  ciscoweb:july72020    dockerashu/ciscoweb:july72020 
+  545  docker  login 
+  546  docker  push   dockerashu/ciscoweb:july72020 
+  547  docker logout 
+  553  docker  ps
+  554  docker  inspect   dtnew4  
+  555  docker  run  -d  --name ashux23 --restart  always alpine ping fb.com 
+  556  docker  update  ashuwebc1  --restart always 
+  558  docker  inspect  ashuwebc1  
+  562  docker  info 
+  565  docker  volume  ls 
+  566  docker  volume  inspect ashuvol1 
+  567  docker  ps  -a
+  568  docker  images
+  569  docker  run  -it --name xc1  -v  ashuvol1:/mnt/ashutoshh   alpine   sh  
+  570  docker  run  -it --name xc1111  -v  ashuvol1:/mnt/ashutoshh   alpine   sh  
+  571  docker  volume  inspect ashuvol1 
+  573  docker  rm  xc1111
+  588  docker  run  -d  --name ashuwebd3  -p 8989:80  -v  /home/centos/day3/htmlapp/:/usr/share/nginx/html nginx 
+  589  docker  ps
+  591  docker  ps
+  593  docker  ps
+  603  docker  ps
+  605  docker  run -d --name ashuwebd3c1 -p 9000:80 -v /home/centos/day3/htmlapp/:/usr/share/nginx/html:ro            -v  ashulogs:/var/log/nginx:rw   nginx  
+  606  docker ps
+  608  docker  volume ls
+  609  docker  ps
+  611  docker  volume inspect ashulogs 
+  616  docker  ps
+  622  docker  run  -it --rm  -v  /etc/hosts:/tmp/a.txt:ro  alpine sh 
+  623  sudo systemctl status docker
+  624  ls  /var/run/docker.sock 
+  625  docker  images
+  626  docker  run  -d  --name webui  -p 8888:9000  --restart  always portainer/portainer 
+  627  docker  ps
+  628  docker  logs webui 
+  630  systemctl  status  docker
+  633  docker rm  webui  --rforce
+  634  docker rm  webui  --force
+  635  docker  run  -d  --name webui  -p 8888:9000  --restart  always  -v /var/run/docker.sock:/var/run/docker.sock     portainer/portainer 
+  637  docker  logs webui 
+  776  kubectl   run  podxashu1  --image=dockerashu
+  778  kubectl   run podxashu1  --image=dockerashu/ciscoweb:july72020   --dry-run -o yaml >webapp1.yml 
+  791  history    |   grep -i docker 
+  795  docker  pull  dockerashritha/ciscoweb:july7722
+  839  docker  ps
+ 1012  kubectl create  deployment   ashudep1  --image=dockerashu/ciscoweb:july72020 --dry-run -o yaml 
+ 1013  kubectl create  deployment   ashudep1  --image=dockerashu/ciscoweb:july72020 --dry-run -o yaml >dep1.yml
+ 1044  kubectl create  deployment   ashudep1  --image=dockerashu/ciscoweb:july72020 --dry-run -o yaml >>ashuapppkg.yml 
+ 1051  kubectl create  deployment   ashudep1  --image=dockerashu/ciscoweb:july72020 -n ashu --dry-run -o yaml 
+ 1058  kubectl create  deployment   ashudep1  --image=dockerashu/ciscoweb:july72020 -n ashudev --dry-run -o yaml  >>pkg.yml 
+ 1078  history    |  grep -i docker   >ciscojuly72020/docker_history.txt  

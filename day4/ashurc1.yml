@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+ name: ashurc-001  #  name of RC 
+ namespace: ashu    #  name of namespace 
+spec:
+ replicas: 3  # want to deploy single pod only
+ template:  #  info about pod
+  metadata:
+   labels:
+    x: ashurcpod1  # label of pods 
+  spec: 
+   containers:
+   - image: dockerashu/ciscoweb:july72020  # name of image 
+     name: ashuc1
+     ports:
+     - containerPort: 80 

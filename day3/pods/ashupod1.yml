@@ -1,0 +1,8 @@
+apiVersion: v1  #  version of k8s api server  for  pod 
+kind: Pod
+metadata:  # Info about POD 
+ name: ashupod-001   #   name of Pod  that must be unique 
+spec:   # INfO about Docker image 
+ containers:
+ - image: nginx  #  This Dockr  image  must be Present on DOcker hub
+   name: ashuc1  #  name of container optional field 

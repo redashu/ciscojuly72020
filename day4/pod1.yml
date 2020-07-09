@@ -1,0 +1,18 @@
+apiVersion: v1  # apiversion for POd 
+kind: Pod  # kind  is POd
+metadata:
+  creationTimestamp: null
+  labels:  # defining labels
+    run: ashupodd4   #  label of my pod 
+  name: ashupodd4  # name of my pod 
+  namespace: ashu   #  name of namespace   make sure namespace is already present 
+spec:
+  containers:
+  - image: dockerashu/ciscoweb:july72020
+    name: ashupodd4
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

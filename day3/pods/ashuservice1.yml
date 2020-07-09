@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: ashus1  #  name of SErvice
+spec:
+ ports:
+ - name: ashhwebport
+   port: 9012   #  port number of  SErvice 
+   protocol: TCP  #  option field
+   targetPort: 80  #  where traffic will be forwarded  means port of POD 
+ type: NodePort  #  type  of Service 
+ selector:   # use to search labels 
+  x: ciscowebapp   #  must be matching with label of POD

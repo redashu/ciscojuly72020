@@ -1,0 +1,203 @@
+  640  kubectl  
+  641  curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+  643  sudo mv  kubectl  /usr/bin/
+  644  sudo chmod +x /usr/bin/kubectl 
+  646  kubectl  version  --client 
+  649  kubectl   version  --client 
+  650  kubectl   version 
+  666  kubectl  version  
+  667  kubectl  version   --kube-config  admin.conf 
+  668  kubectl  version   --kubeconfig  admin.conf 
+  669  kubectl  version 
+  670  kubectl  version   --kubeconfig  admin.conf 
+  671  kubectl  get  nodes   --kubeconfig  admin.conf 
+  676  kubectl  get  nodes   
+  677  kubectl   version 
+  678  kubectl   get  nodes
+  695  kubectl   get  nodes
+  701  kubectl   get  pods
+  703  kubectl  apply  -f  ashupod1.yml  
+  704  kubectl   get  pods
+  705  kubectl   get  pods  -w
+  707  kubectl  version 
+  715  kubectl   get po 
+  716  kubectl   get pods
+  717  kubectl   get pod
+  718  kubectl   get po
+  720  kubectl  get  pod 
+  721  kubectl  get  no
+  722  kubectl get  po
+  723  kubectl get  po -o wide
+  725  kubectl get  po -o wide
+  732  kubectl   get  po
+  736  kubectl  get  pods
+  737  kubectl  get  pods  -o wide
+  741  kubectl   explain  pods 
+  742  kubectl   explain  pods.apiVersion 
+  743  kubectl   explain  pods.kind
+  744  kubectl   explain  pods.metadata
+  746  kubectl   explain  pods.spec.containers
+  750  kubectl  get  po 
+  751  kubectl  delete pods  ashupod-001
+  752  kubectl  get  po 
+  754  kubectl   run  ashupod0022  --image=nginx  --dry-run -o yaml 
+  755  kubectl   run  ashupod0022  --image=nginx  --dry-run=client  -o yaml 
+  756  kubectl   run  ashupod0022  --image=nginx  --dry-run=client  -o json 
+  758  kubectl   run  ashupod0022  --image=nginx  --dry-run=client  -o yaml  >ashupod2.yaml
+  759  kubectl   run  ashupod0033  --image=nginx  --dry-run=client  -o json   >ashupod3.json
+  765  kubectl  apply -f  ashupod2.yaml  
+  766  kubectl  apply -f  ashupod3.json 
+  768  kubectl  get  pods  
+  770  kubectl  get pods
+  771  kubectl   version 
+  772  kubectl  get  po
+  773  kubectl  delete pods --all 
+  776  kubectl   run  podxashu1  --image=dockerashu
+  778  kubectl   run podxashu1  --image=dockerashu/ciscoweb:july72020   --dry-run -o yaml >webapp1.yml 
+  783  kubectl  apply -f  webapp1.yml 
+  784  kubectl   get pods
+  786  kubectl   get pods
+  790  kubectl   get pods  -w
+  792  kubectl  get  po
+  794  kubectl describe  pods  podxashritha  
+  799  kubectl get po -o wide 
+  803  kubectl  get po 
+  804  kubectl  get po   --show-labels 
+  806  kubectl apply -f  webapp1.yml 
+  807  kubectl  get po   --show-labels 
+  809  kubectl  get  po 
+  810  kubectl  get  po   podxashu1  -o wide
+  811  kubectl  get  po   podxashu1  --show-labels
+  816  kubectl   apply -f  ashuservice1.yml 
+  817  kubectl  get  service
+  819  kubectl  get  service
+  821  kubectl  get  service
+  825  kubectl   run   ashupod3  --image=alpine  --dry-run  -o  yaml 
+  826  kubectl   run   ashupod3  --image=alpine  --dry-run  -o  yaml   >alp.yml 
+  828  kubectl   apply  -f  alp.yml 
+  829  kubectl   get   po 
+  830  kubectl   get   po -w
+  833  kubectl  apply  -f  alp.yml 
+  834  kubectl  replace   -f  alp.yml  --force
+  835  kubectl  get  po 
+  836  kubectl  logs  ashupod3
+  837  kubectl  logs  -f  ashupod3
+  841  kubectl  get  po 
+  842  kubectl  exec  -it  ashupod3   date
+  843  kubectl  exec  -it  ashupod3   cal
+  844  kubectl  exec  -it  ashupod3   sh 
+  846  kubectl   get po 
+  847  kubectl   run  pod111  --image=nginx  --dry-run 
+  848  kubectl   get po 
+  849  kubectl   run  pod111  --image=nginx  
+  850  kubectl   get po 
+  851  kubectl   version 
+  853  kubectl  delete  pods --all 
+  857  kubectl delete  all --all 
+  858  kubectl  get  namesapce
+  859  kubectl  get  namesapces
+  860  kubectl  get  namespace 
+  861  kubectl  get  pods
+  862  kubectl  get  pods -n kube-system 
+  863  kubectl   get  ns
+  864  kubectl   create  namespace  ashu 
+  865  kubectl  get  ns
+  867  kubectl  get  ns
+  869  kubectl  get  ns
+  877  kubectl  run  ashupodd4  --image=ockerashu/ciscoweb:july72020  --port 80  --dry-run -o yaml  >pod1.yml 
+  883  kubectl  apply -f  pod1.yml 
+  884  kubectl   get  po
+  885  kubectl   get  po  -n  ashu 
+  886  kubectl   get  po  -n  ashu -o wide
+  887  kubectl   get  po --show-labels   -n  ashu
+  889  kubectl  get  po 
+  890  kubectl  get  po -n ashu
+  892  kubectl  get  po -n ashu
+  893  kubectl  create  service  nodeport  ashusvc1  --tcp 1234:80  --dry-run -o yaml 
+  894  kubectl  create  service  nodeport  ashusvc1  --tcp 1234:80  --dry-run -o yaml  >pod1svc.yml 
+  895  kubectl   get  po --show-labels   -n  ashu
+  899  kubectl apply -f  pod1svc.yml 
+  900  kubectl  get  svc  -n ashu
+  901  kubectl  get  service  -n ashu
+  903  kubectl   get  po,svc  -n ashu
+  905  kubectl   get  po,svc  -n ashu
+  907  kubectl   get  po,svc  -n ashu
+  911  kubectl  get  svc  -n deepak
+  912  kubectl  get  svc  
+  918  kubectl  get po -n deepak
+  922  kubectl   get  po  -n ashu
+  923  kubectl  expose  pods  ashupodd4  --type NodePort --port 1234 --target-port 80 --name mysvc1 -n ashu
+  924  kubectl  get svc  -n ashu
+  925  kubectl  expose  pods  ashupodd4  --type NodePort --port 1234 --target-port 80  -n ashu
+  926  kubectl  get svc  -n ashu
+  927  kubectl get  po,svc -n ashu
+  939  kubectl apply -f  ashurc1.yml 
+  940  kubectl  get  replicationcontroller   -n ashu
+  941  kubectl  get  rc -n ashu
+  942  kubectl get po -n ashu
+  944  kubectl get po -n ashu
+  945  kubectl get po -n ashu -o wide
+  946  kubectl  delete po ashurc-001-2g87s  
+  947  kubectl  delete po ashurc-001-2g87s     -n ahsu
+  948  kubectl  delete po ashurc-001-2g87s     -n ashu
+  949  kubectl get po -n ashu
+  951  kubectl   his
+  955  kubectl replace -f ashurc1.yml  --force 
+  959  kubectl get  rc  -n ashu
+  960  kubectl expose rc  ashurc-001  --type NodePort --port 1234 --target-port 80 -n ashu
+  961  kubectl  get  svc -n ashu
+  963  kubectl  get  ns
+  964  kubectl   get  rc  -n madewangns
+  965  kubectl  get  po -n madewangns
+  966  kubectl  delete pods  --all -n madewangns
+  968  kubectl  get  rc -n madewangns
+  969  kubectl get  po -n madewangns
+  973  kubectl apply -f ashurc1.yml 
+  974  kubectl get  rc  -n ashurc1.yml 
+  975  kubectl get  rc  -n ashu
+  976  kubectl get po -n ashu
+  977  kubectl get po -n ashu --show-labels
+  979  kubectl  get  rc  -n ashu
+  980  kubectl  scale  rc  ashurc-001  --replica=5 -n ashu
+  981  kubectl  scale  rc  ashurc-001  --replicas=5 -n ashu
+  982  kubectl  get rc  -n ashu
+  983  kubectl  get  po   -n ashu
+  985  kubectl  get  po   -n ashu
+  986  kubectl  get rc  -n ashu
+  987  kubectl  edit  rc   ashurc-001    -n ashu 
+  988  kubectl  get rc  -n ashu
+  990  kubectl  get ns
+  991  kubectl   get po -n ashritha
+  992  kubectl   get rc -n ashritha
+ 1002  kubectl delete all --all  -n ashu
+ 1012  kubectl create  deployment   ashudep1  --image=dockerashu/ciscoweb:july72020 --dry-run -o yaml 
+ 1013  kubectl create  deployment   ashudep1  --image=dockerashu/ciscoweb:july72020 --dry-run -o yaml >dep1.yml
+ 1021  kubectl  get  deployment -n ashu 
+ 1022  kubectl apply -f  dep1.yml -n ashu
+ 1023  kubectl  get  deployment -n ashu 
+ 1024  kubectl  get  deployments -n ashu 
+ 1025  kubectl  get  deploy  -n ashu 
+ 1026  kubectl  get deploy -n ashu
+ 1027  kubectl  get rs  -n ashu 
+ 1028  kubectl  get po -n ashu
+ 1031  kubectl  get deploy -n ashu
+ 1032  kubectl  expose deployment ashudep1 --type LoadBalancer  --port 9090 --target-port 80 -n ashu 
+ 1033  kubectl  get  svc  -n ashu 
+ 1034  kubectl  expose deployment ashudep1 --type LoadBalancer  --port 9090 --target-port 80 -n ashu  --dry-run  -o yaml 
+ 1036  kubectl  get  svc -n ashu
+ 1038  kubectl get  ns
+ 1039  kubectl  get  deploy 
+ 1041  kubectl  create  namespace    ashutest  --dry-run  -o yaml  >ashuapppkg.yml 
+ 1044  kubectl create  deployment   ashudep1  --image=dockerashu/ciscoweb:july72020 --dry-run -o yaml >>ashuapppkg.yml 
+ 1048  kubectl  expose deployment ashudep1 --type LoadBalancer  --port 9090 --target-port 80 -n ashu  --dry-run  -o yaml  >>ashuapppkg.yml 
+ 1051  kubectl create  deployment   ashudep1  --image=dockerashu/ciscoweb:july72020 -n ashu --dry-run -o yaml 
+ 1055  kubectl  create namespace   ashudev  --dry-run  -o yaml  >pkg.yml 
+ 1058  kubectl create  deployment   ashudep1  --image=dockerashu/ciscoweb:july72020 -n ashudev --dry-run -o yaml  >>pkg.yml 
+ 1059  kubectl  expose deployment ashudep1 --type LoadBalancer  --port 9090 --target-port 80 -n ashudev  --dry-run  -o yaml  >>pkg.yml 
+ 1061  kubectl create service loadbalancer  ashus2 --tcp 1234:80 -n ashudev  --dry-run -o yaml >>pkg.yml 
+ 1065  kubectl apply  -f  pkg.yml 
+ 1066  kubectl  get ns
+ 1067  kubectl  get deploy -n ashudev 
+ 1068  kubectl  get pods -n ashudev 
+ 1069  kubectl  get svc -n ashudev 
+ 1079  history    |  grep -i kubectl  >ciscojuly72020/kube_history.txt
