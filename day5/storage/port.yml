@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashuportainer
+  name: ashuportainer
+  namespace: ashu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ashuportainer
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ashuportainer
+    spec:
+      nodeName: ip-172-31-68-151.ec2.internal  # this is optional 
+      volumes:
+      - name: ashuvol003
+        hostPath:
+         path: /var/run/docker.sock   #  docker engine  socket 
+         type: Socket    #  socket file 
+      containers:
+      - image: portainer/portainer
+        name: portainer
+        ports:
+        - containerPort: 9000
+        volumeMounts:
+        - name: ashuvol003  # volume created above
+          mountPath: /var/run/docker.sock  #  under portainer path
+        resources: {}
+status: {}

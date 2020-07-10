@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashudep5
+  name: ashudep5
+  namespace: ashu  #  name of namespace 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ashudep5
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ashudep5
+    spec:
+      imagePullSecrets:  #  for defining  secrets
+      - name: ashuacr    #  name of secret where Acr auth details are stored 
+      containers:
+      - image: ciscoinida.azurecr.io/alpine:v1
+        name: alpine
+        command: ["/bin/sh","-c","ping fb.com"] #  partent process replacement of Entrypoint from Docker image 
+        resources: {}
+status: {}

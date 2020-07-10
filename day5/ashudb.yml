@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: ashudbpod
+  name: ashudbpod
+spec:
+  containers:
+  - env:
+    - name: MYSQL_ROOT_PASSWORD  #  predefine  ENV  variable in mysql image Dockerfile 
+      valueFrom:        # its not the right way so we can replace with COnfigMap OR secret
+       secretKeyRef:
+        name: ashudbsec  #  name of  secret 
+        key: sqlpass  #  key of secret where db password is stored 
+    image: mysql
+    name: ashudbpod
+    resources:
+     request:
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

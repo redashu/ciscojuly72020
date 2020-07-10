@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: example-ingress
+spec:
+  rules:
+  - host: xyz.ashutoshh.in
+    http:
+      paths:
+        - path: /      #  default page name 
+          backend:
+            serviceName: pod1
+            servicePort: 80

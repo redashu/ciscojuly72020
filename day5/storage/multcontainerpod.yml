@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: emppod
+  name: emppod
+  namespace: ashu  #  namespace  name 
+spec:
+  volumes:  #  this is for creation volumes with pod 
+  - name: ashuvol001  #  name of volume i want to create 
+    emptyDir: {}   #   here blank braces means k8s will automatically create folder on worker node 
+  containers:
+  - image: nginx    #  app container image
+    name: ashuc1  #  name of continaer 
+    ports:  #  application port 
+    - containerPort: 80
+    volumeMounts:
+    - name: ashuvol001   #  mounting volume 
+      mountPath: /usr/share/nginx/html/
+  - image: alpine   #  helper container  image  
+    name: ashuc2   #  name of container 
+    volumeMounts:  #  for mounting  above created volumes 
+    - name: ashuvol001  #  same name as  above created 
+      mountPath: /mnt/cisco  #  location inside container where we will be mounting this volume 
+    command: ["/bin/sh","-c","while true;do date  >>/mnt/cisco/index.html;sleep 10;done"]
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
